@@ -9,10 +9,6 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"
             android:title="About" />
@@ -20,6 +16,14 @@
             android:id="@+id/nav_contact_us"
             android:icon="@drawable/ic_menu_contact_us"
             android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_resources"
+            android:icon="@drawable/ic_menu_resources"
+            android:title="Resources" />
+        <item
+            android:id="@+id/nav_announcements"
+            android:icon="@drawable/ic_menu_announcements"
+            android:title="Announcements" />
     </group>
 
     <item android:title="Communicate">

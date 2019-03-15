@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.acm_app_georgechan.Fragments.AboutUs;
+import com.example.acm_app_georgechan.Fragments.Announcements;
 import com.example.acm_app_georgechan.Fragments.ContactUs;
 import com.example.acm_app_georgechan.Fragments.HomePage;
+import com.example.acm_app_georgechan.Fragments.Resources;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,7 +94,6 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, homepageFragment);
             ft.commit();
-        } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_about) {
             AboutUs aboutUsFragment = new AboutUs();
@@ -104,10 +105,17 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, contactFragment);
             ft.commit();
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_resources) {
+            Resources resourcesFragment = new Resources();
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container, resourcesFragment);
+            ft.commit();
+        } else if (id == R.id.nav_announcements) {
+            Announcements announcementsFragment = new Announcements();
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container, announcementsFragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
