@@ -4,11 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.acm_app_georgechan.Adapters.ResourceAdapter;
 import com.example.acm_app_georgechan.Models.Event;
 import com.example.acm_app_georgechan.R;
 import com.example.acm_app_georgechan.Retrofit.APIClient;
@@ -21,22 +24,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Resources.OnFragmentInteractionListener} interface
- * to handle interaction events.
- */
+
 public class Resources extends Fragment {
 
 //    private OnFragmentInteractionListener mListener;
 
-    private TextView results;
+//    private TextView results;
     private List<Event> hackathons;
+    private RecyclerView mRecyclerView;
+    private ResourceAdapter mAdapter;
 
     public Resources() {
         // Required empty public constructor
     }
+
 
 
     @Override
@@ -47,8 +48,10 @@ public class Resources extends Fragment {
 //        return inflater.inflate(R.layout.fragment_resources, container, false);
         View rootView = inflater.inflate(R.layout.fragment_resources, container, false);
 
+        mRecyclerView = rootView.findViewById(R.id.results_rv);
+
         //Find the results TextView in our XML through Id
-        results = rootView.findViewById(R.id.results);
+//        results = rootView.findViewById(R.id.results);
 
         //LoadJSON is a custom method, we take in the parameter container since this is a fragment.
         LoadJson(container);
@@ -105,16 +108,10 @@ public class Resources extends Fragment {
             @Override
             public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
                 hackathons = filterEvents(response.body());
-                for (Event event : hackathons) {
-                    String content = "";
-                    content += "Name: " + event.getName() + "\n";
-                    content += "Location: " + event.getLocation() + "\n";
-                    content += "Start Date: " + event.getStartDate() + "\n";
-                    content += "End Date: " + event.getEndDate() + "\n";
-                    content += "URL: " + event.getUrl() + "\n\n";
-
-                    results.append(content);
-                }
+                mAdapter = new ResourceAdapter(container.getContext(), hackathons);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
