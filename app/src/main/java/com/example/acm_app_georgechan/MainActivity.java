@@ -122,10 +122,11 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.fragment_container, announcementsFragment);
             ft.commit();
         } else if (id == R.id.nav_share) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/calstatela.acm"));
-
+            Intent browserIntent = new Intent(this, FacebookActivity.class);
+            startActivity(browserIntent);
         } else if (id == R.id.nav_send) {
-
+            Intent browserIntent = new Intent(this, InstagramActivity.class);
+            startActivity(browserIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
