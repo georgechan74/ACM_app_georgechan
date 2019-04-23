@@ -22,10 +22,10 @@
             <!--android:textColor="#000" />-->
 
     <!--</android.support.v4.widget.NestedScrollView>-->
-    <ScrollView
-        android:id="@+id/results"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ScrollView>
+    <!--<ScrollView-->
+        <!--android:id="@+id/results"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></ScrollView>-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/results_rv"

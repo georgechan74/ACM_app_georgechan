@@ -73,7 +73,7 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
         }
 
         void bind(final int position) {
-//            Log.d(TAG, "test2");
+            Log.d(TAG, mEvents.get(position).getImageUrl());
             Picasso.with(mContext).load(mEvents.get(position).getImageUrl()).into(mEventImage);
             mEventName.setText(mEvents.get(position).getName());
             mEventLocation.setText("Located at " + mEvents.get(position).getLocation());
